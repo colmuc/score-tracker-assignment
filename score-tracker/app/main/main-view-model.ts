@@ -6,6 +6,7 @@ import { ObservableArray } from "tns-core-modules/data/observable-array";
 export class HelloWorldModel extends Observable {
   private _counter: number;
   private _message: string;
+  private numberOfPlayers: number;
 
   constructor() {
     super();

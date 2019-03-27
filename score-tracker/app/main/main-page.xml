@@ -47,8 +47,18 @@ https://docs.nativescript.org/ui/components.
                         <!--Add your page content here-->
 
                         <StackLayout class="p-20">
-                            <Label text="Tap the button" class="h1 text-center"/>
-                            <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
+                            <Label text="Enter the number of players" class="p1 text-center"/>
+
+
+                            <AbsoluteLayout >
+                                <TextField text="{{ textFieldValue }}" hint="Enter players here..." left="100" top="10" width="180" height="50"/>
+                                <Button text="Enter" tap="{{ onTap }}" class="btn btn-primary btn-active" left = "10" top="10" height="40"/>
+                             </AbsoluteLayout>
+
+                            
+                           
+
+
                             <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
                         </StackLayout> 
 
