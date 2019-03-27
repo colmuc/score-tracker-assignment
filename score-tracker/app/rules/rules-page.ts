@@ -6,24 +6,33 @@ logic, and to set up your page’s data binding.
 
 import { EventData } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
-import { HomeViewModel } from "./about-view-model";
+import { HomeViewModel } from "./rules-view-model";
 import { getFrameById } from "tns-core-modules/ui/frame";
-
-// Event handler for Page "pageLoaded" event attached in home-page.xml
-export function pageLoaded(args: EventData) {
+// Event handler for Page "navigatingTo" event attached in main-page.xml
+export function navigatingTo(args: EventData) {
   /*
     This gets a reference this page’s <Page> UI component. You can
     view the API reference of the Page to see what’s available at
     https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
     */
-  let page = <Page>args.object;
+  const page = <Page>args.object;
+
+  /*
+    A page’s bindingContext is an object that should be used to perform
+    data binding between XML markup and TypeScript code. Properties
+    on the bindingContext can be accessed using the {{ }} syntax in XML.
+    In this example, the {{ message }} and {{ onTap }} bindings are resolved
+    against the object returned by createViewModel().
+
+    You can learn more about data binding in NativeScript at
+    https://docs.nativescript.org/core-concepts/data-binding.
+    */
   page.bindingContext = new HomeViewModel();
 }
 export function onTapHome() {
   const frame = getFrameById("my-frame");
   frame.navigate("main/main-page");
 }
-
 export function onTapAbout() {
   const frame = getFrameById("my-frame");
   frame.navigate("about/about-page");

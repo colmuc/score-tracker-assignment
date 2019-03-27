@@ -37,3 +37,8 @@ export function onTapAbout() {
   const frame = getFrameById("my-frame");
   frame.navigate("about/about-page");
 }
+
+export function onTapRules() {
+  const frame = getFrameById("my-frame");
+  frame.navigate("rules/rules-page");
+}

@@ -33,8 +33,7 @@ https://docs.nativescript.org/ui/components.
                         <Label text="Navigation Menu" />
                     </StackLayout>
                     <StackLayout>
-                        <Button text="Home" padding="10" backgroundColor="lightgray"
-                            tap="onTapHome" />
+                        <Button text="Home" padding="10" backgroundColor="lightgray"  tap="onTapHome" />
                         <Button text="About" padding="10" backgroundColor="lightgray" tap="onTapAbout" />
                         <Button text="Rules" padding="10" tap="onTapRules" backgroundColor="lightgray" />
                     </StackLayout>
@@ -44,24 +43,20 @@ https://docs.nativescript.org/ui/components.
             </nsDrawer:RadSideDrawer.drawerContent>
             <nsDrawer:RadSideDrawer.mainContent>
                 <ScrollView>
+                <StackLayout>
+                <Label textWrap = "true" text = "Hey there! Just pick the corresponding numbers and enter them in the textbox on the home page. This is how you will pick your players."/>
                     <GridLayout>
                         <!--Add your page content here-->
 
-                        <StackLayout class="p-20">
-                            <Label text="Enter the number of players" class="p1 text-center"/>
+                        <GridLayout class="p-20">
+                            <ListView items="{{players}}">
+                                
+                                 <ListView.itemTemplate>
+                                        <Label text ="{{name}}"/>
+                                  </ListView.itemTemplate>
+                            </ListView>
 
-
-                            <AbsoluteLayout >
-                                <TextField text="{{ textFieldValue }}" hint="Enter players here..." left="100" top="10" width="180" height="50"/>
-                                <Button text="Enter" tap="{{ onTap }}" class="btn btn-primary btn-active" left = "10" top="10" height="40"/>
-                             </AbsoluteLayout>
-
-                            
-                           
-
-
-                            <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
-                        </StackLayout> 
+                        </GridLayout> 
 
 
 
@@ -70,6 +65,7 @@ https://docs.nativescript.org/ui/components.
 
 
                     </GridLayout>
+                </StackLayout>    
                 </ScrollView>
             </nsDrawer:RadSideDrawer.mainContent>
         </nsDrawer:RadSideDrawer>
